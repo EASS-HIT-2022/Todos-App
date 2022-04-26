@@ -26,27 +26,28 @@ app.add_middleware(
 
 
 @app.get("/api/v1/todo")
-async def get_todo():
+async def get_AllTodos():
     response = await pullAllTodos()
+    if not response:
+        raise HTTPException(status_code=404, detail="there is no todos at all!")
     return response
 
 @app.get("/api/v1/todo/{title}", response_model=Todo)
-async def get_todo_by_title(title):
+async def get_TodoByTitle(title):
     response = await pullOneTodo(title)
     return response
    
-
 @app.post("/api/v1/todo/", response_model=Todo)
-async def post_todo(todo: Todo):
+async def post_CreateNewTodo(todo: Todo):
     response = await createTodo(todo)
     return response
 
 @app.put("/api/v1/todo/{title}/", response_model=Todo)
-async def put_todo(title: str,request: Todo):
+async def put_UpdateTodo(title: str,request: Todo):
     response = await updateTodo(title, request)
     return response
 
 @app.delete("/api/v1/todo/{title}")
-async def delete_todo(title):
+async def delete_TodoByTitle(title):
     response = await deleteTodo(title)
     return Todo(**response[0])

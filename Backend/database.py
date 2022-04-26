@@ -17,8 +17,7 @@ async def pullOneTodo(title):
     task = await collection.find_one({"title": title})
     if not task:
         raise HTTPException(404, f"There is no todo with the title {title}")
-    document = await collection.find_one({"title": title})
-    return document
+    return task
 
 async def pullAllTodos():
     allTodosList = []

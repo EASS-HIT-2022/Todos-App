@@ -2,4 +2,12 @@ fastapi
 pydantic
 uvicorn
 motor
+requests
+motor
+twisted
+pytest
+pytest-asyncio
+pytest-tornasync
+pytest-trio
+pytest-twisted
 pymongo[srv]
