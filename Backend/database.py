@@ -30,7 +30,7 @@ async def updateTodo(title, request):
     task = await collection.find({"title": title}).to_list(None)
     if not task:
         raise HTTPException(404, f"There is no todo with the title {title}")
-    await collection.update_one({"title": title}, {"$set": {"title": request.title ,"description": request.description}})
+    await collection.update_one({"title": title}, {"$set": {"title": request.title ,"description": request.description, "status": request.status}})
     return request
 
 async def deleteTodo(title):
