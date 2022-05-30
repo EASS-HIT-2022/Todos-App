@@ -10,4 +10,4 @@ class Todo(BaseModel):
     title: str
     description: str
     status: TodoStatus = TodoStatus.todo
-    created_at: datetime.datetime = datetime.datetime.now()
+    created_at: datetime.datetime.now()
