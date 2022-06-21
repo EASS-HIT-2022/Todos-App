@@ -1,8 +1,14 @@
 import motor.motor_asyncio
 from model import Todo
 from fastapi import FastAPI, HTTPException
+import os
 
-client = motor.motor_asyncio.AsyncIOMotorClient('mongodb+srv://yargisp:Aa123456@cluster0.shzss.mongodb.net/test')
+user = os.getenv("userdb")
+password = os.getenv("passworddb")
+host = os.getenv("hostdb")
+port = os.getenv("portdb")
+
+client = motor.motor_asyncio.AsyncIOMotorClient(f'mongodb://{user}:{password}@{host}:{port}')
 database = client.TodoList
 collection = database.todo
 

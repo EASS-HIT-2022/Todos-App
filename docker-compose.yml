@@ -1,0 +1,46 @@
+version: "3.9"
+services:
+  ui:
+    build:
+      context: ./Frontend
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000" 
+    networks:
+      - todos-app
+    depends_on:
+      - backend
+    environment:
+      - API_URL=http://localhost:8090
+
+  backend:
+    build:
+      context: ./Backend
+      dockerfile: Dockerfile
+    ports:
+      - "8090:8080"
+    networks:
+      - todos-app
+    depends_on:
+      - mongodatabase
+    environment:
+      - userdb=yargisp
+      - passworddb=Aa123456
+      - hostdb=mongodatabase
+      - portdb=27017
+
+  mongodatabase:
+    image: mongo
+    ports:
+      - "27017:27017"
+    networks:
+      - todos-app
+    restart: always
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=yargisp
+      - MONGO_INITDB_ROOT_PASSWORD=Aa123456
+
+networks:
+  todos-app:
+    name: todos-app
+    driver: bridge
