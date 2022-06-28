@@ -5,7 +5,7 @@
 Welcome to Todo's App! 
 This app will help you to manage your time effectively, by this app you will not forget any task you have todo.
 
-![Screenshot](Todos-App/blob/main/Files/App.png)
+![Screenshot](https://github.com/EASS-HIT-2022/Todos-App/blob/main/Files/App.png)
 
 ## Installation
 
