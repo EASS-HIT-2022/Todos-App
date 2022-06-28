@@ -9,47 +9,34 @@ This app will help you to manage your time effectively, by this app you will not
 
 ## Installation
 
-For run this app, please follow the steps below:
+To run this app, please follow the steps below:
 
-1. Clone the repo localy:
+1. Open a CMD\terminal localy
+
+2. Enter the command below to clone the repo:
 ```bash
  git clone https://github.com/EASS-HIT-2022/Todos-App.git
 ```
-2. build the Backend docker:
+3. Move into the cloned folder:
 ```bash
-cd {your_path}/Todos-App/Backend
-docker build . -t todos-app
+cd Todos-App/
 ```
-build the Frontend docker:
+3. Run all containers (frontend, backend, database) with docker-compose
 ```bash
-cd {your_path}/Todos-App/Frontend
-docker build -t todos-front .
+ docker compose up
 ```
 
-3. Run the Backend docker:
-```bash
- docker run -d --name todos-app-con -p 8090:8080 todos-app
-```
- Run the Frontend docker:
-```bash
-  docker run --name todos-front-docker -d -p 3000:3000 todos-front
-```
-
-4. All set, you can connect to the link http://localhost:8090/docs for API, or http://localhost:3000/ to the App.
+4. All set, you can connect to the link http://localhost:3000/
 
 
-5. For testing, please run docker exec -ti todos-app-con bash
 
-6. Run the command pytest
+## Built With
 
+Client: React (Next.js), TailwindCSS
 
-## Functionality
+Server: Python, FastAPI
 
-- Add a new Todo's tasks
-- Delete Todo's tasks by title
-- Update Todo's tasks by title
-- Get all your Todo's tasks
-- Get one Todo's task by title
+Database: MongoDB
 
 
 ## Contact 
